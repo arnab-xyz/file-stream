@@ -22,7 +22,7 @@ func (f *FileStreamServer) Stream(stream pb.FileStream_StreamServer) error {
 		if err != nil {
 			return stream.SendAndClose(&pb.Response{
 				Message: "Upload Failed",
-				Success: true,
+				Success: false,
 			})
 		}
 		fmt.Printf("Received data, size: %d, content: %s\n", chunk.GetSize(), string(chunk.GetData()[:chunk.GetSize()]))
