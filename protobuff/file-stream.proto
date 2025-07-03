@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package FileStream;
+option go_package = "./protobuff;filestream";
+
+service FileStream {
+  rpc Stream (stream File) returns (Response);
+}
+
+message File {
+  bytes data = 1 ;
+  int32 size = 2;
+}
+
+message Response {
+  string message = 1;
+  bool success = 2;
+}
